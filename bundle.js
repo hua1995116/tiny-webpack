@@ -35,9 +35,17 @@
     b();
   },
   "./a.js": function(module, exports, require) {
+    const bar = require("./foo/bar.js");
+
     module.exports = function() {
       console.log("a");
+      bar();
       return "aaaaa";
+    };
+  },
+  "./foo/bar.js": function(module, exports, require) {
+    module.exports = () => {
+      console.log("bar");
     };
   },
   "./b.js": function(module, exports, require) {
