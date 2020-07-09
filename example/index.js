@@ -1,5 +1,8 @@
 const a = require('./a.js');
-const b = require('./b.js');
+import b from './b.js';
 
 console.log(a());
 b();
+import('./foo/bar.js').then(res => {
+    console.log(res.default())
+})
